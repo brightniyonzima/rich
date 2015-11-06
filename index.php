@@ -25,8 +25,8 @@ include 'locsupcon.php';
 <tr><td><caption>Upload a file</caption></td><td></td></tr>
 <form action="" method="post">
 <tr>
-<td><input type="submit" value="upload file"/></td>
-<td><input type="text" name="file"/></td>
+<td></td>
+<td><input type="file" name="file"/></td>
 </tr>
 <tr>
 <td></td>
