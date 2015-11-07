@@ -1,7 +1,7 @@
 
 <?php
 include 'connection.php';
-    if(isset($_POST['file'])){$path = $_POST['file']};
+    if(isset($_POST['file'])){$path = $_POST['file'];}
     $queryArray = array();
     $objPHPExcel = PHPExcel_IOFactory::load($path);
     $flag=true;

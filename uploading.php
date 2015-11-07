@@ -1,8 +1,9 @@
+<?php
 ini_set("display_errors",1);
 require_once 'excel_reader2.php';
-require_once 'db.php';
+require_once 'connection.php';
  
-$data = new Spreadsheet_Excel_Reader("example.xls");
+$data = new Spreadsheet_Excel_Reader($_POST['file']);
  
 echo "Total Sheets in this xls file: ".count($data->sheets)."<br /><br />";
  
@@ -21,13 +22,13 @@ for($i=0;$i<count($data->sheets);$i++) // Loop to get all sheets in a file.
 				$html.=$data->sheets[$i][cells][$j][$k];
 				$html.="</td>";
 			}
-			$eid = mysqli_real_escape_string($connection,$data->sheets[$i][cells][$j][1]);
-			$name = mysqli_real_escape_string($connection,$data->sheets[$i][cells][$j][2]);
-			$email = mysqli_real_escape_string($connection,$data->sheets[$i][cells][$j][3]);
-			$dob = mysqli_real_escape_string($connection,$data->sheets[$i][cells][$j][4]);
-			$query = "insert into excel(eid,name,email,dob) values('".$eid."','".$name."','".$email."','".$dob."')";
+			$location = mysqli_real_escape_string($conn,$data->sheets[$i][cells][$j][1]);
+			$supplier = mysqli_real_escape_string($conn,$data->sheets[$i][cells][$j][2]);
+			$start = mysqli_real_escape_string($conn,$data->sheets[$i][cells][$j][3]);
+			$end = mysqli_real_escape_string($conn,$data->sheets[$i][cells][$j][4]);
+			$query = "insert into occurences(location_id,supplier_id,start,end) values('".$location."','".$supplier."','".$start."','".$end."')";
  
-			mysqli_query($connection,$query);
+			mysqli_query($conn,$query);
 			$html.="</tr>";
 		}
 	}

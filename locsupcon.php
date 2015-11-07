@@ -5,18 +5,42 @@ if(isset($_POST['location']) or isset($_POST['supplier']))
 { 
 $location = $_POST['location']; 
 $supplier = $_POST['supplier'];
+$id=0;
 if(empty($location) and empty($supplier) ){
-echo 'No details were sent, All details are required';
+echo 'No details were sent, Please fill in details';
 echo "<form action=index.php>";
 echo "<input type=submit value=ok>";
 echo "</form>";
+exit;
+}
+elseif(empty(!$location) and empty(!$supplier)){
+$query="insert into suppliers values('".$id."','".$supplier."'')";
+$queryz="insert into locations values('".$id."',''".$location."'')";
+$resultz=$conn->query($queryz);
+$result=$conn->query($query);
+if($resultz and $result){
+echo 'new location/supplier have been succesfully added';
+}
+exit;
+}
+elseif(empty(!$location)){
+$queryz="insert into locations values('".$id."',''".$location."'')";
+$resultz=$conn->query($queryz);
+if($resultz){
+echo 'new location has been succesfully added';
+}
+exit;
+} 
+elseif(empty(!$supplier)){
+$query="insert into suppliers values('".$id."','".$supplier."'')";
+$result=$conn->query($query);
+if($result){
+echo 'new supplier has been succesfully added';
+}
+exit;
 }
 else{
-$query="insert into suppliers values('".$supplier."'')";
-$query1="insert into locations values('".$location."'')";
-$result=$conn->query($query);
-$result1=$conn->query($query1);
-echo 'new location/supplier have been succesfully added';
+echo'sorry, something went wrong';
 }
 
 }

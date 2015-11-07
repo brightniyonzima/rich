@@ -13,24 +13,24 @@ include 'locsupcon.php';
 <p align="left"><a href="report.php"> View report</a></p>
 
 <table align="center" id="new_location">
-<tr><td><caption>Add location and supplier</caption></td><td></td></tr>
-<form action="locsupcon.php" method="post">
+<tr><td><caption>Add location or supplier</caption></td><td></td></tr>
+<form action="locsupcon.php" method="post"/>
 <tr><td>Location:</td><td><input type="text" name="location"/></td></tr>
 <tr><td>Supplier</td><td><input type="text" name="supplier"/></td></tr>
 <tr><td></td><td><input type="submit" value="send"/><input type="reset" value="cancel"/></td></tr>
 </form>
 </table>
 
-<table align="center" id="uploading">
+<table align="center" id="uploadingTable">
 <tr><td><caption>Upload a file</caption></td><td></td></tr>
-<form action="" method="post">
+<form action="altUploading.php" method="post">
 <tr>
 <td></td>
 <td><input type="file" name="file"/></td>
 </tr>
 <tr>
 <td></td>
-<td><input type="submit" value="send"/><input type="reset" value="cancel"/></td>
+<td><input type="submit" value="send" name="submit"/><input type="reset" value="cancel"/></td>
 </tr>
 </form>
 </table>
