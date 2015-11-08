@@ -28,7 +28,7 @@ $sql=$conn->query($query);
 $result=mysqli_fetch_array($sql);
 $existId=$result['id'];
 if($existId==""){
-$insertTable="insert into occurences(location,supplier,start,stop) values('".$location."','".$supplier."','".$start."','".$stop."');";
+$insertTable="insert into occurrences(location_id,supplier_id,start,end) values('".$location."','".$supplier."','".$start."','".$stop."');";
 $insertResult=$conn->query($insertTable);
 echo 'data has been succesully added';
 }
