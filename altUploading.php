@@ -1,6 +1,7 @@
 
 <?php
 include 'connection.php';
+include 'phpexcelfactory.php';
     if(isset($_POST['file'])){$path = $_POST['file'];}
     $queryArray = array();
     $objPHPExcel = PHPExcel_IOFactory::load($path);
