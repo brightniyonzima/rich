@@ -21,13 +21,13 @@ $(function() {
 <p align="left"><a href="index.php"> Home</a></p>
 <table align="center">
 <tr><td><caption>Report</caption></td><td></td></tr>
-<form action="" method="post">
+<form action="reportcsv.php" method="post">
 <tr><td>Location</td><td><select name="location">
 <?php
 $query='select * from locations';
 $result=$conn->query($query);
 while($row=mysqli_fetch_array($result)){
-echo "<option value='".$row[1]."'>'".$row[1]."'</option>";
+echo "<option value='".$row[1]."'>".$row[1]."</option>";
 }
 ?>
 </td></tr>

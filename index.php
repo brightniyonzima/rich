@@ -1,6 +1,7 @@
 <?php
 include 'connection.php';
 include 'locsupcon.php';
+/*
 if(isset($_POST['submit']))
 {
 set_include_path(get_include_path() . PATH_SEPARATOR . 'Classes/');
@@ -23,12 +24,14 @@ $supplier=trim($allDataInSheet[$i]["B"]);
 $start=trim($allDataInSheet[$i]["C"]);
 $stop=trim($allDataInSheet[$i]["D"]);
 
+//checking to see if record already exists befroe inserting into database //
+
 $query="select * from occurrences where location_id='".$location."' and supplier_id='".$supplier."' and start='".$start."' and end='".$stop."' ";
 $sql=$conn->query($query);
 $result=mysqli_fetch_array($sql);
 $existId=$result['id'];
 if($existId==""){
-$insertTable="insert into occurrences(location_id,supplier_id,start,end) values('".$location."','".$supplier."','".$start."','".$stop."');";
+$insertTable="insert into occurrences(id,location_id,supplier_id,start,end) values('".$id."','".$location."','".$supplier."','".$start."','".$stop."');";
 $insertResult=$conn->query($insertTable);
 echo 'data has been succesully added';
 }
@@ -38,6 +41,7 @@ echo 'data already exists';
 
 }
 }
+*/
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -60,7 +64,7 @@ echo 'data already exists';
 
 <table align="center" id="uploadingTable">
 <tr><td><caption>Upload a file</caption></td><td></td></tr>
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" action="importcsv.php">
 <tr>
 <td></td>
 <td><input type="file" name="file"/></td>

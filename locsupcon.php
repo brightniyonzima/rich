@@ -14,8 +14,8 @@ echo "</form>";
 exit;
 }
 elseif(empty(!$location) and empty(!$supplier)){
-$query="insert into suppliers values('".$id."','".$supplier."'')";
-$queryz="insert into locations values('".$id."',''".$location."'')";
+$query="insert into suppliers values('".$id."','".$supplier."'');";
+$queryz="insert into locations values('".$id."','".$location."');";
 $resultz=$conn->query($queryz);
 $result=$conn->query($query);
 if($resultz and $result){
@@ -24,18 +24,22 @@ echo 'new location/supplier have been succesfully added';
 exit;
 }
 elseif(empty(!$location)){
-$queryz="insert into locations values('".$id."',''".$location."'')";
+$queryz="insert into locations values('".$id."','".$location."');";
 $resultz=$conn->query($queryz);
 if($resultz){
 echo 'new location has been succesfully added';
+}else{
+echo 'location already exists';
 }
 exit;
 } 
 elseif(empty(!$supplier)){
-$query="insert into suppliers values('".$id."','".$supplier."'')";
+$query="insert into suppliers values('".$id."','".$supplier."');";
 $result=$conn->query($query);
 if($result){
 echo 'new supplier has been succesfully added';
+}else{
+echo 'supplier already exists';
 }
 exit;
 }
