@@ -21,7 +21,7 @@ $(function() {
 <p align="left"><a href="index.php"> Home</a></p>
 <table align="center">
 <tr><td><caption>Report</caption></td><td></td></tr>
-<form action="reportcsv.php" method="post">
+<form action="reportexcel.php" method="post">
 <tr><td>Location</td><td><select name="location">
 <?php
 $query='select * from locations';

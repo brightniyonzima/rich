@@ -1,5 +1,6 @@
 <?php
 include 'connection.php';
+
 if(isset($_POST['submit']))
 {
 $filename=$_FILES["file"]["name"];
@@ -14,9 +15,9 @@ while(($data=fgetcsv($handle,1000,","))!==false)
 {
 $id=0;
 
-//checking to see if record already exists befroe inserting into database //
+//checking to see if record already exists before inserting into database //
 
-$query="select * from occurrences where location_id='".$data[0]."' and supplier_id='".$data[1]."' and start='".$data[2]."' and end='".$data[3]."' ";
+$query="select * from occurrences where location_id='".$data[0]."' and supplier_id='".$data[1]."' and start='".$data[2]."' and end='".$data[3]."'; ";
 $sql=$conn->query($query);
 $result=mysqli_fetch_array($sql);
 $existId=$result['id'];
@@ -59,20 +60,24 @@ $stop=trim($allDataInSheet[$i]["D"]);
 
 //checking to see if record already exists befroe inserting into database //
 
-$query="select * from occurrences where location_id='".$location."' and supplier_id='".$supplier."' and start='".$start."' and end='".$stop."' ";
+$query="select * from occurrences where location_id='".$location."' and supplier_id='".$supplier."' and start='".$start."' and end='".$stop."'; ";
 $sql=$conn->query($query);
 $result=mysqli_fetch_array($sql);
 $existId=$result['id'];
 if($existId==""){
 $insertTable="insert into occurrences(id,location_id,supplier_id,start,end) values('".$id."','".$location."','".$supplier."','".$start."','".$stop."');";
 $insertResult=$conn->query($insertTable);
-echo ' data has been succesully added';
 }
 else{
 echo 'data already exists';
+exit;
 }
 
 }
+echo "<form action=index.php>";
+echo "<input type=submit value=ok>";
+echo "</form>";
+header('Location: index.php');
 }
 
 else{

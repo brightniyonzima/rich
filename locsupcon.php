@@ -21,6 +21,9 @@ $result=$conn->query($query);
 if($resultz and $result){
 echo 'new location/supplier have been succesfully added';
 }
+else{
+echo 'supplier/location already exists';
+}
 exit;
 }
 elseif(empty(!$location)){
