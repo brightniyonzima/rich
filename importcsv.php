@@ -34,7 +34,7 @@ exit;
 }
 fclose($handle);
 echo "<html><script>onLoad()=sentFile()</script></html>";
-echo ' succesfully imported';
+header('Location: index.php');
 }
 
 elseif(strtolower(end($chk_ext))=="xlsx")

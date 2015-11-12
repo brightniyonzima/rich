@@ -22,31 +22,43 @@ alert("file has been succesfully uploaded");
 <!-- <p align="left"><a href="report.php">View report</a></p> -->
 
 <div id="new_location_supplier">
-<table align="center" id="new_location">
-<tr><td><caption>Add location or supplier</caption></td><td></td></tr>
-<form action="locsupcon.php" method="post"/>
-<tr><td>Location:</td><td><input type="text" name="location"/></td></tr>
-<tr><td>Supplier</td><td><input type="text" name="supplier"/></td></tr>
-<tr><td></td><td><input type="submit" value="send"/><input type="reset" value="cancel"/></td></tr>
+<form method="post" enctype="multipart/form-data" class="elegant-aero" action="locsupcon.php">
+<h1>New location or supplier
+        <span>Add a new location or internet supplier.</span>
+    </h1>
+<label>
+        <span>Location: </span>
+		<input type="text" placeholder="add new location" name="location"/>
+		</label>
+<label>
+        <span>Supplier: </span>
+		<input type="text" placeholder="add new supplier" name="supplier"/>
+		</label>
+<label>
+<span> &nbsp;</span>
+<input type="submit" value="send"/><input type="reset" value="cancel"/>
+</label>
 </form>
-</table>
+
 </div>
 
 <div id="upload_file">
-<table align="center" id="uploadingTable">
-<tr><td><caption>Upload a file</caption></td><td></td></tr>
-<form method="post" enctype="multipart/form-data" action="importcsv.php">
-<tr>
-<td></td>
-<td><input type="file" name="file"/></td>
-</tr>
-<tr>
-<td></td>
-<td><input type="submit" value="send" name="submit"/><input type="reset" value="cancel"/></td>
-</tr>
+<form method="post" enctype="multipart/form-data" class="elegant-aero" action="importcsv.php">
+    <h1>Download a report
+        <span>download to get downtime report.</span>
+    </h1>
+    <label>
+        <span>Upload file </span>
+        <input type="file" name="file"/>
+    </label>
+      
+     <label>
+        <span>&nbsp;</span>
+        <input type="submit" value="send" name="submit"/><input type="reset" value="cancel"/>
+    </label>    
 </form>
-</table>
 </div>
+
 
 </div>
 </body>
