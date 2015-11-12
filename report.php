@@ -18,10 +18,13 @@ $(function() {
 </head>
 
 <body>
-<p align="left"><a href="index.php"> Home</a></p>
+<div id="container" class="container">
+<!-- <p align="left"><a href="index.php">Home</a></p> -->
+
+<div id="report_file">
 <table align="center">
-<tr><td><caption>Report</caption></td><td></td></tr>
 <form action="reportexcel.php" method="post">
+<tr><td><caption>Report</caption></td><td></td></tr>
 <tr><td>Location</td><td><select name="location">
 <?php
 $query='select * from locations';
@@ -30,7 +33,7 @@ while($row=mysqli_fetch_array($result)){
 echo "<option value='".$row[1]."'>".$row[1]."</option>";
 }
 ?>
-</td></tr>
+</select></td></tr>
 <tr><td><b>Period</b></td><td></td></tr>
 <tr>
 <td>From:<input type="text" name="datepickerfrom" id="datepicker" /></td><td>To:<input type="text" name="datepickerto" id="datepicker1" /></td></tr>
@@ -40,6 +43,9 @@ echo "<option value='".$row[1]."'>".$row[1]."</option>";
 </tr>
 </form>
 </table>
+</div>
+
+</div>
 </body>
 </html>
 

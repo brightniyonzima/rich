@@ -17,7 +17,7 @@ $id=0;
 
 //checking to see if record already exists before inserting into database //
 
-$query="select * from occurrences where location_id='".$data[0]."' and supplier_id='".$data[1]."' and start='".$data[2]."' and end='".$data[3]."'; ";
+$query="select * from occurrences where location_id='".$data[0]."' and supplier_id='".$data[1]."' and start='".$data[2]."' and end='".$data[3]."' ";
 $sql=$conn->query($query);
 $result=mysqli_fetch_array($sql);
 $existId=$result['id'];
@@ -33,6 +33,7 @@ exit;
 
 }
 fclose($handle);
+echo "<html><script>onLoad()=sentFile()</script></html>";
 echo ' succesfully imported';
 }
 
@@ -74,9 +75,7 @@ exit;
 }
 
 }
-echo "<form action=index.php>";
-echo "<input type=submit value=ok>";
-echo "</form>";
+echo "<html><script>onload()=sentFile()</script></html>";
 header('Location: index.php');
 }
 
