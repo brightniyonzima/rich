@@ -28,7 +28,7 @@ $(function() {
     </h1>
 <label>
         <span>Location: </span>
-		<select name="location">
+		<select name="reportlocation">
 <?php
 $query='select * from locations';
 $result=$conn->query($query);
@@ -48,7 +48,7 @@ echo "<option value='".$row[1]."'>".$row[1]."</option>";
 		</label>
 <label>
 <span> &nbsp;</span>
-<input type="submit" value="send"/><input type="reset" value="cancel"/>
+<input type="submit" value="view"/><input type="reset" value="cancel"/>
 </label>
 </form>
 </div>

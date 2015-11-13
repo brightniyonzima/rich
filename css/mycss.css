@@ -26,7 +26,7 @@ th {
 }
 #report_file {
      float:left;
-	 margin-left:30px;
+	 margin-left:80px;
 	 height:150px;
 	 width:360px;
 }
@@ -101,7 +101,7 @@ float:left;
 .elegant-aero select {
     background: #fbfbfb url('down-arrow.png') no-repeat right;
     background: #fbfbfb url('down-arrow.png') no-repeat right;
-   appearance:none;
+    appearance:none;
     -webkit-appearance:none;
    -moz-appearance: none;
     text-indent: 0.01px;

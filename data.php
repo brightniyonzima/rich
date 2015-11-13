@@ -10,9 +10,14 @@
 <?php
 	//connection to mysql
 	include 'connection.php';
-	
+	$reportlocation=$_POST['reportlocation'];
+	$from=$_POST['datepickerfrom'];
+	$froms=date('Y-m-d', strtotime($from)); //date format
+	$to=$_POST['datepickerto'];
+	$tos=date('Y-m-d', strtotime($to)); //date format
 	//query get data
-	$sql ="SELECT * FROM occurrences ORDER BY id ASC";
+	$sql ="SELECT * FROM occurrences,locations WHERE locations.area='".$reportlocation."' AND occurrences.start like'".$from."' AND occurrences.end like '".$to."'  ";
+	//$sql="select * from occurrences";
 	$result=$conn->query($sql);
 	
 	while($data = mysqli_fetch_row($result)){

@@ -23,7 +23,10 @@ $result=mysqli_fetch_array($sql);
 $existId=$result['id'];
 if($existId==""){
 
-$sql="insert into occurrences values('".$id."','".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."');";
+$start = date('Y-m-d H:i:s', strtotime($data[2])); //date format
+$end = date('Y-m-d H:i:s', strtotime($data[3])); //date format
+
+$sql="insert into occurrences values('".$id."',(select id from suppliers where supplier='".$supplier."'),(select id from locations where area='".$location."'),'".$start."','".$end."');";
 $result=$conn->query($sql);
 }
 else{
@@ -66,7 +69,10 @@ $sql=$conn->query($query);
 $result=mysqli_fetch_array($sql);
 $existId=$result['id'];
 if($existId==""){
-$insertTable="insert into occurrences(id,location_id,supplier_id,start,end) values('".$id."','".$location."','".$supplier."','".$start."','".$stop."');";
+$startTime = date('Y-m-d H:i:s', strtotime($start)); //date format
+$endTime = date('Y-m-d H:i:s', strtotime($stop)); //date format
+
+$insertTable="insert into occurrences values('".$id."',(select id from suppliers where supplier='".$supplier."'),(select id from locations where area='".$location."'),'".$startTime."','".$endTime."');";
 $insertResult=$conn->query($insertTable);
 }
 else{

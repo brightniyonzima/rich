@@ -44,8 +44,8 @@ alert("file has been succesfully uploaded");
 
 <div id="upload_file">
 <form method="post" enctype="multipart/form-data" class="elegant-aero" action="importcsv.php">
-    <h1>Download a report
-        <span>download to get downtime report.</span>
+    <h1>Upload a file
+        <span>upload an excel or csv file.</span>
     </h1>
     <label>
         <span>Upload file </span>
