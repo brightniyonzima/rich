@@ -26,11 +26,14 @@ if($existId==""){
 $start = date('Y-m-d H:i:s', strtotime($data[2])); //date format
 $end = date('Y-m-d H:i:s', strtotime($data[3])); //date format
 
-$sql="insert into occurrences values('".$id."',(select id from suppliers where supplier='".$supplier."'),(select id from locations where area='".$location."'),'".$start."','".$end."');";
+$sql="insert into occurrences(id,supplier_id,location_id,start,end) values('".$id."',(select id from suppliers where supplier='".$supplier."'),(select id from locations where area='".$location."'),'".$start."','".$end."');";
 $result=$conn->query($sql);
 }
 else{
 echo'records already exist';
+echo "<form action=index.php>";
+echo "<input type=submit value=ok>";
+echo "</form>";
 exit;
 }
 
@@ -72,21 +75,29 @@ if($existId==""){
 $startTime = date('Y-m-d H:i:s', strtotime($start)); //date format
 $endTime = date('Y-m-d H:i:s', strtotime($stop)); //date format
 
-$insertTable="insert into occurrences values('".$id."',(select id from suppliers where supplier='".$supplier."'),(select id from locations where area='".$location."'),'".$startTime."','".$endTime."');";
+$insertTable="insert into occurrences(id,supplier_id,location_id,start,end) values('".$id."',(select id from suppliers where supplier='".$supplier."'),(select id from locations where area='".$location."'),'".$startTime."','".$endTime."');";
 $insertResult=$conn->query($insertTable);
 }
 else{
 echo 'data already exists';
+echo "<form action=index.php>";
+echo "<input type=submit value=ok>";
+echo "</form>";
 exit;
 }
 
 }
-echo "<html><script>onload()=sentFile()</script></html>";
-header('Location: index.php');
+echo "database has been successfully updated";
+echo "<form action=index.php>";
+echo "<input type=submit value=ok>";
+echo "</form>";
 }
 
 else{
 echo ' ,file must be excel or csv';
+echo "<form action=index.php>";
+echo "<input type=submit value=ok>";
+echo "</form>";
 }
 
 }

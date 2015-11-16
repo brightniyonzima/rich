@@ -13,6 +13,10 @@ th {
     margin:40px;
 	margin-left:90px;
 }
+#dowtime_form{
+    width:90%;
+	float:left;
+	}
 #new_location_supplier  {
     float:left;
 	height:150px;
@@ -122,3 +126,24 @@ float:left;
 .elegant-aero .button:hover{
     background: #3EB1DD;
 }
+.my-elegant {
+    margin-left:auto;
+    margin-right:auto;
+    background: #D2E9FF;
+    padding: 20px 20px 20px 20px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+	margin:20px 280px 70px 0px;
+
+}
+.my-elegant h1 {
+    font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 10px 10px 10px 20px;
+    display: block;
+    background: #C0E1FF;
+    border-bottom: 1px solid #B8DDFF;
+    margin: -20px -20px 15px;
+}
+.my-elegant span {
+	font-weight:bold;
+	}

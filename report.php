@@ -21,38 +21,6 @@ $(function() {
 <div id="container" class="container">
 <!-- <p align="left"><a href="index.php">Home</a></p> -->
 
-<div id="report_file">
-<form action="reportexcel.php" method="post" enctype="multipart/form-data" class="elegant-aero">
-<h1>Get report
-        <span>generate a report from cacti.</span>
-    </h1>
-<label>
-        <span>Location: </span>
-		<select name="reportlocation">
-<?php
-$query='select * from locations';
-$result=$conn->query($query);
-while($row=mysqli_fetch_array($result)){
-echo "<option value='".$row[1]."'>".$row[1]."</option>";
-}
-?>
-</select>
-		</label>
-		<label>
-		<span>From: </span>
-		<input type="text" name="datepickerfrom" id="datepicker" />
-		</label>
-		<label>
-        <span>To: </span>
-		<input type="text" name="datepickerto" id="datepicker1" />
-		</label>
-<label>
-<span> &nbsp;</span>
-<input type="submit" value="view"/><input type="reset" value="cancel"/>
-</label>
-</form>
-</div>
-
 </div>
 </body>
 </html>
