@@ -1,15 +1,22 @@
 <?php
 require_once 'connection.php';
 
-if(isset($_POST['downlocation']) and isset($_POST['downsupplier'])and isset($_POST['downstart'])and isset($_POST['downend']))
+if(isset($_POST['downlocation']) and isset($_POST['downsupplier'])and isset($_POST['datestart'])and isset($_POST['timestart']) and isset($_POST['dateend']) and isset($_POST['timeend']))
 { 
 $location = $_POST['downlocation']; 
 $supplier = $_POST['downsupplier'];
-$start = $_POST['downstart'];
-$end = $_POST['downend'];
+$dstart = $_POST['datestart']." ".$_POST['timestart'];
+$dend = $_POST['dateend']." ".$_POST['timeend'];
+
+$date = new DateTime($dstart);
+$start=$date->format('Y-m-d H:i:s');
+
+$ddate = new DateTime($dend);
+$end=$ddate->format('Y-m-d H:i:s');
+
 $id=0;
 
-if(empty($location) and empty($supplier)and empty($start) and empty($end)){
+if(empty($location) or empty($supplier) or empty($start) or empty($end)){
 echo 'Please fill in all details';
 echo "<form action=index.php>";
 echo "<input type=submit value=ok>";
@@ -33,4 +40,11 @@ echo "</form>";
 }
 
 }
+else{
+echo "no data sent,please fill in all details";
+echo "<form action=index.php>";
+echo "<input type=submit value=ok>";
+echo "</form>";
+}
+
 ?>

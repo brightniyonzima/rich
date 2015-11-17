@@ -8,8 +8,36 @@ include 'locsupcon.php';
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Down time</title>
+
+<!--
+<link href="jquery-simple-datetimepicker-1.12.0/jquery.simple-dtpicker.css" rel="stylesheet">
+<script src="jquery-simple-datetimepicker-1.12.0/jquery.simple-dtpicker.js"></script>
+<script src="jquery-simple-datetimepicker-1.12.0/Gruntfile.js"></script>
+-->
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="js/jquery-ui-sliderAccess.js"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+<link type="text/css" href="js/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+
+
+<script type="text/javascript" src="js/jonthornton-jquery-timepicker-54dd222/jquery.timepicker.js"></script>
+<script type="text/javascript" src="js/jonthornton-jquery-timepicker-54dd222/jquery.timepicker.min.js"></script>
+<link type="text/css" href="js/jonthornton-jquery-timepicker-54dd222/jquery.timepicker.css" rel="stylesheet" />
+
+
 <link href="css/mycss.css" rel="stylesheet" />
 <script type="text/javascript">
+$(function(){
+         $('#tm').timepicker();
+     });
+
+$(function(){
+         $( "#datepicker" ).datetimepicker();
+     });
+
 function sentFile(){
 alert("file has been sent");
 }
@@ -41,6 +69,7 @@ function checkInput(downstart) {
 <h1>Register a new down time occurrence
         <span></span>
     </h1>
+	
 <label>
         <span>Location: </span>
 		<select name="downlocation">
@@ -64,18 +93,24 @@ echo "<option value='".$row[1]."'>".$row[1]."</option>";
 ?>
 </select>
 		</label>
+		<p id="datepairExample">
 <label>
         <span>Start: </span>
-		<input type="text" placeholder=" &nbsp;  yyyy-mm-dd &nbsp; hh:mm" name="downstart" onkeyup="checkInput(this)"/>
+    <input type="text" class="date start" name="datestart" />
+    <input type="text" class="time start" name="timestart" /> 
+
 		</label>
 <label>
         <span>End: </span>
-		<input type="text" placeholder=" &nbsp; yyyy-mm-dd &nbsp; hh:mm" name="downend" onkeyup="checkInput(this)"/>
+		<input type="text" class="time end" name="timeend" />
+        <input type="text" class="date end" name="dateend" />
 		</label>
+		
 <label>
-<span> &nbsp;</span>
+<span> &nbsp;&nbsp;&nbsp;</span>
 <input type="submit" value="send" onclick="formatting()" onclick="clearinputs()"/><input type="reset" value="cancel"/>
 </label>
+</p>
 </form>
 </div>
 
@@ -134,16 +169,6 @@ echo "<option value='".$row[1]."'>".$row[1]."</option>";
 ?>
 </select>
 		</label>
-		<!--
-		<label>
-		<span>From: </span>
-		<input type="text" name="datepickerfrom" id="datepicker" />
-		</label>
-		<label>
-        <span>To: </span>
-		<input type="text" name="datepickerto" id="datepicker1" />
-		</label>
-		-->
 <label>
 <input type="submit" value="view report"/><input type="reset" value="cancel"/>
 </label>
@@ -155,6 +180,25 @@ echo "<option value='".$row[1]."'>".$row[1]."</option>";
 
 </div>
 
+
+
+<script type="text/javascript" src="datepair.js"></script>
+<script type="text/javascript" src="jquery.datepair.js"></script>
+<script>
+    // initialize input widgets first
+    $('#datepairExample .time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'g:ia'
+    });
+
+    $('#datepairExample .date').datepicker({
+        'format': 'yyyy-m-d',
+        'autoclose': true
+    });
+
+    // initialize datepair
+    $('#datepairExample').datepair();
+</script>
 
 </div>
 </body>
